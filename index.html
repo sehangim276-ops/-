@@ -3,30 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>포무브PT | 다치지 않는 몸 만들기</title>
+  <title>PO:MOVE TRAINING STUDIO | 다치지 않는 몸 만들기</title>
   <meta name="description" content="서울 성북구 정릉동 위치한 퍼스널 트레이닝 스튜디오. 1:1 레슨, 2:1 체험레슨, 바디진단 패키지 제공." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black: #0d0d0d;
-      --dark: #1a1a1a;
-      --accent: #e8ff00;
-      --accent2: #ff5c00;
-      --white: #f5f5f5;
-      --gray: #888;
-      --card-bg: #1e1e1e;
+      --cream:    #F2EDE7;
+      --cream-2:  #EAE3DB;
+      --cream-3:  #E0D8CE;
+      --brown:    #7A5C45;
+      --brown-2:  #5C3D28;
+      --brown-light: #A8846A;
+      --dark:     #2A1F1A;
+      --text:     #3D2B1F;
+      --text-muted: #8A7060;
+      --white:    #FDFAF7;
+      --border:   rgba(122,92,69,0.15);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Noto Sans KR', sans-serif;
-      background: var(--black);
-      color: var(--white);
+      background: var(--cream);
+      color: var(--text);
       line-height: 1.6;
     }
 
@@ -38,48 +42,67 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 5%;
-      background: rgba(13,13,13,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 20px 6%;
+      background: rgba(242,237,231,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
     }
 
     .logo {
-      font-size: 1.4rem;
-      font-weight: 900;
-      letter-spacing: -0.5px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1;
     }
 
-    .logo span { color: var(--accent); }
+    .logo-main {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 4px;
+      color: var(--brown-2);
+    }
+
+    .logo-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.55rem;
+      font-weight: 400;
+      letter-spacing: 4px;
+      color: var(--brown-light);
+      margin-top: 3px;
+      text-transform: uppercase;
+    }
 
     .nav-links {
       display: flex;
-      gap: 28px;
+      gap: 32px;
       list-style: none;
+      align-items: center;
     }
 
     .nav-links a {
       text-decoration: none;
-      color: var(--white);
-      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-size: 0.82rem;
       font-weight: 500;
-      opacity: 0.75;
-      transition: opacity 0.2s;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: color 0.2s;
     }
 
-    .nav-links a:hover { opacity: 1; }
+    .nav-links a:hover { color: var(--brown-2); }
 
     .nav-cta {
-      background: var(--accent);
-      color: var(--black) !important;
-      padding: 8px 20px;
-      border-radius: 50px;
-      font-weight: 700 !important;
-      opacity: 1 !important;
-      transition: transform 0.2s, background 0.2s !important;
+      background: var(--brown-2) !important;
+      color: var(--white) !important;
+      padding: 10px 22px;
+      border-radius: 2px;
+      font-size: 0.78rem !important;
+      letter-spacing: 1.5px !important;
+      transition: background 0.2s, transform 0.2s !important;
     }
 
-    .nav-cta:hover { transform: scale(1.05); background: #d4ea00 !important; }
+    .nav-cta:hover { background: var(--brown) !important; transform: translateY(-1px); }
 
     /* ── HERO ── */
     #hero {
@@ -87,50 +110,70 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 100px 5% 60px;
+      padding: 120px 6% 80px;
       position: relative;
       overflow: hidden;
     }
 
-    .hero-bg {
+    .hero-bg-shape {
       position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 70% 50%, rgba(232,255,0,0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(255,92,0,0.07) 0%, transparent 60%);
+      right: -5%;
+      top: 10%;
+      width: 55%;
+      height: 80%;
+      background: var(--cream-2);
+      border-radius: 4px;
       pointer-events: none;
+      z-index: 0;
     }
 
+    .hero-content { position: relative; z-index: 1; max-width: 600px; }
+
     .hero-tag {
-      display: inline-block;
-      background: var(--accent2);
-      color: #fff;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      padding: 5px 14px;
-      border-radius: 50px;
-      margin-bottom: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 3px;
       text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 32px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 1px;
+      background: var(--brown);
     }
 
     .hero-title {
-      font-size: clamp(2.6rem, 8vw, 6rem);
-      font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -2px;
-      margin-bottom: 24px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      color: var(--dark);
+      margin-bottom: 28px;
     }
 
-    .hero-title .accent { color: var(--accent); }
+    .hero-title strong {
+      font-weight: 600;
+      color: var(--brown-2);
+      display: block;
+    }
 
     .hero-sub {
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
-      color: #aaa;
-      max-width: 480px;
-      margin-bottom: 44px;
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 400px;
+      margin-bottom: 48px;
       font-weight: 300;
-      line-height: 1.8;
+      line-height: 2;
+      letter-spacing: 0.3px;
     }
 
     .hero-btns {
@@ -142,186 +185,225 @@
     .btn-primary {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: var(--accent);
-      color: var(--black);
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 16px 34px;
-      border-radius: 50px;
+      gap: 10px;
+      background: var(--brown-2);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      font-size: 0.82rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border-radius: 2px;
       text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     }
 
     .btn-primary:hover {
+      background: var(--brown);
       transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(232,255,0,0.35);
+      box-shadow: 0 8px 30px rgba(92,61,40,0.25);
     }
 
     .btn-secondary {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       background: transparent;
-      color: var(--white);
+      color: var(--brown-2);
+      font-family: 'Montserrat', sans-serif;
       font-weight: 500;
-      font-size: 1rem;
-      padding: 16px 34px;
-      border-radius: 50px;
-      border: 1.5px solid rgba(255,255,255,0.25);
+      font-size: 0.82rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border-radius: 2px;
+      border: 1px solid var(--brown-2);
       text-decoration: none;
-      transition: border-color 0.2s, background 0.2s;
+      transition: background 0.2s, color 0.2s;
     }
 
     .btn-secondary:hover {
-      border-color: var(--white);
-      background: rgba(255,255,255,0.05);
+      background: var(--brown-2);
+      color: var(--white);
     }
 
     .hero-scroll {
-      margin-top: 70px;
+      margin-top: 80px;
       display: flex;
       align-items: center;
-      gap: 10px;
-      color: var(--gray);
-      font-size: 0.8rem;
-      letter-spacing: 1.5px;
+      gap: 12px;
+      color: var(--text-muted);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 3px;
       text-transform: uppercase;
     }
 
     .scroll-line {
       width: 40px;
       height: 1px;
-      background: var(--gray);
-    }
-
-    /* ── SECTION COMMON ── */
-    section { padding: 100px 5%; }
-
-    .section-label {
-      font-size: 0.75rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-
-    .section-title {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 900;
-      letter-spacing: -1px;
-      margin-bottom: 16px;
-    }
-
-    .section-desc {
-      color: #aaa;
-      max-width: 520px;
-      font-size: 1rem;
-      line-height: 1.8;
-      margin-bottom: 60px;
+      background: var(--brown-light);
     }
 
     /* ── STATS ── */
     #stats {
-      padding: 60px 5%;
-      border-top: 1px solid rgba(255,255,255,0.07);
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 60px 6%;
+      background: var(--cream-2);
       display: flex;
       flex-wrap: wrap;
-      gap: 40px;
+      gap: 0;
       justify-content: space-around;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
 
-    .stat-item { text-align: center; }
+    .stat-item {
+      text-align: center;
+      padding: 20px 30px;
+    }
 
     .stat-num {
+      font-family: 'Cormorant Garamond', serif;
       font-size: 3rem;
-      font-weight: 900;
-      color: var(--accent);
-      letter-spacing: -2px;
+      font-weight: 500;
+      color: var(--brown-2);
+      letter-spacing: -1px;
+      line-height: 1;
     }
 
     .stat-label {
-      font-size: 0.85rem;
-      color: var(--gray);
-      margin-top: 4px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 110px 6%; }
+
+    .section-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--brown);
+      font-weight: 500;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--brown);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      color: var(--dark);
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      max-width: 480px;
+      font-size: 0.95rem;
+      line-height: 2;
+      margin-bottom: 60px;
+      font-weight: 300;
     }
 
     /* ── SERVICES ── */
-    #services { background: var(--dark); }
+    #services { background: var(--white); }
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 2px;
     }
 
     .service-card {
-      background: var(--card-bg);
-      border-radius: 20px;
-      padding: 40px 32px;
-      border: 1px solid rgba(255,255,255,0.07);
-      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+      background: var(--cream);
+      padding: 50px 40px;
+      border: 1px solid var(--border);
+      transition: background 0.3s, transform 0.25s, box-shadow 0.25s;
       position: relative;
-      overflow: hidden;
     }
 
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s;
+    .service-card:hover {
+      background: var(--white);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(92,61,40,0.12);
+      z-index: 1;
     }
 
-    .service-card:hover { transform: translateY(-6px); border-color: rgba(232,255,0,0.2); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
-    .service-card:hover::before { transform: scaleX(1); }
-
-    .service-icon {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
+    .service-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 24px;
+      color: rgba(122,92,69,0.18);
     }
 
     .service-badge {
       display: inline-block;
-      background: rgba(232,255,0,0.12);
-      color: var(--accent);
-      font-size: 0.72rem;
-      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown);
+      border: 1px solid var(--brown-light);
       padding: 4px 12px;
-      border-radius: 50px;
-      letter-spacing: 0.5px;
+      border-radius: 1px;
       margin-bottom: 16px;
     }
 
     .service-name {
-      font-size: 1.35rem;
-      font-weight: 700;
-      margin-bottom: 12px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--dark);
+      margin-bottom: 14px;
+      line-height: 1.3;
     }
 
     .service-desc {
-      color: #888;
-      font-size: 0.9rem;
-      line-height: 1.75;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.9;
+      font-weight: 300;
     }
 
     .service-cta {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      margin-top: 24px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--accent);
+      gap: 8px;
+      margin-top: 28px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown-2);
       text-decoration: none;
+      padding-bottom: 2px;
+      border-bottom: 1px solid var(--brown-light);
+      transition: gap 0.2s, color 0.2s;
     }
 
-    .service-cta::after { content: '→'; }
+    .service-cta:hover { gap: 14px; color: var(--brown); }
 
     /* ── PHILOSOPHY ── */
     #philosophy {
@@ -329,184 +411,250 @@
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: center;
+      background: var(--cream-2);
     }
-
-    .philosophy-text .section-desc { margin-bottom: 36px; }
 
     .check-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 16px;
     }
 
     .check-list li {
       display: flex;
       align-items: flex-start;
-      gap: 12px;
-      font-size: 0.95rem;
-      color: #ccc;
+      gap: 16px;
+      font-size: 0.9rem;
+      color: var(--text);
+      font-weight: 300;
+      line-height: 1.7;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
     }
 
+    .check-list li:last-child { border-bottom: none; }
+
     .check-list li::before {
-      content: '✓';
-      color: var(--accent);
-      font-weight: 900;
-      font-size: 1rem;
+      content: '—';
+      color: var(--brown);
+      font-weight: 400;
       flex-shrink: 0;
-      margin-top: 1px;
     }
 
     .philosophy-visual {
-      background: var(--card-bg);
-      border-radius: 24px;
-      padding: 50px 40px;
-      border: 1px solid rgba(255,255,255,0.07);
+      background: var(--brown-2);
+      border-radius: 2px;
+      padding: 60px 50px;
       text-align: center;
-    }
-
-    .philosophy-visual .big-text {
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
-      font-weight: 900;
-      line-height: 1.4;
       color: var(--white);
     }
 
-    .philosophy-visual .big-text span { color: var(--accent); }
+    .philosophy-visual .big-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--cream);
+    }
+
+    .philosophy-visual .big-text em {
+      font-style: italic;
+      color: var(--cream-2);
+    }
 
     .philosophy-visual .divider {
-      width: 40px;
-      height: 3px;
-      background: var(--accent);
-      margin: 24px auto;
-      border-radius: 2px;
+      width: 30px;
+      height: 1px;
+      background: rgba(242,237,231,0.4);
+      margin: 28px auto;
     }
 
     .philosophy-visual p {
-      color: #888;
-      font-size: 0.9rem;
-      line-height: 1.8;
+      color: rgba(242,237,231,0.65);
+      font-size: 0.85rem;
+      line-height: 2;
+      font-weight: 300;
     }
 
     /* ── ONLINE CLASS ── */
-    #online {
-      background: var(--dark);
-      text-align: center;
-    }
+    #online { text-align: center; }
 
     #online .section-label,
     #online .section-title,
-    #online .section-desc { margin-left: auto; margin-right: auto; text-align: center; }
-
-    .online-card {
-      max-width: 700px;
-      margin: 0 auto;
-      background: linear-gradient(135deg, rgba(232,255,0,0.1), rgba(255,92,0,0.08));
-      border: 1px solid rgba(232,255,0,0.2);
-      border-radius: 24px;
-      padding: 50px 40px;
+    #online .section-desc {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
     }
 
-    .online-card .icon { font-size: 3rem; margin-bottom: 20px; }
-    .online-card h3 { font-size: 1.6rem; font-weight: 900; margin-bottom: 12px; }
-    .online-card p { color: #aaa; margin-bottom: 30px; line-height: 1.8; }
+    #online .section-label {
+      justify-content: center;
+    }
+
+    .online-card {
+      max-width: 680px;
+      margin: 0 auto;
+      background: var(--cream-2);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 60px 50px;
+    }
+
+    .online-card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 24px;
+    }
+
+    .online-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 14px;
+    }
+
+    .online-card p {
+      color: var(--text-muted);
+      margin-bottom: 36px;
+      line-height: 2;
+      font-size: 0.9rem;
+      font-weight: 300;
+    }
 
     /* ── SOCIAL ── */
-    #social { text-align: center; }
+    #social {
+      background: var(--white);
+      text-align: center;
+    }
+
+    #social .section-label { justify-content: center; }
 
     .social-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 16px;
       justify-content: center;
-      margin-top: 10px;
     }
 
     .social-card {
       display: flex;
       align-items: center;
-      gap: 14px;
-      background: var(--card-bg);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 16px;
-      padding: 22px 32px;
+      gap: 16px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 24px 36px;
       text-decoration: none;
-      color: var(--white);
-      font-weight: 500;
-      transition: transform 0.2s, border-color 0.2s;
+      color: var(--text);
+      transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
       min-width: 220px;
     }
 
-    .social-card:hover { transform: translateY(-4px); border-color: rgba(232,255,0,0.3); }
+    .social-card:hover {
+      transform: translateY(-3px);
+      background: var(--white);
+      box-shadow: 0 8px 30px rgba(92,61,40,0.1);
+    }
 
-    .social-card .social-icon { font-size: 1.8rem; }
+    .social-card .social-icon { font-size: 1.5rem; }
 
     .social-card .social-info small {
       display: block;
-      font-size: 0.72rem;
-      color: var(--gray);
-      margin-bottom: 2px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
     }
 
-    .social-card .social-info span { font-weight: 700; }
+    .social-card .social-info span {
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--dark);
+    }
 
     /* ── CONTACT ── */
-    #contact {
-      background: var(--dark);
-    }
+    #contact { background: var(--cream-2); }
 
     .contact-wrap {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      gap: 80px;
       align-items: start;
     }
 
-    .contact-info { display: flex; flex-direction: column; gap: 28px; }
+    .contact-info { display: flex; flex-direction: column; gap: 0; }
 
     .info-row {
       display: flex;
-      gap: 16px;
+      gap: 20px;
       align-items: flex-start;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
     }
+
+    .info-row:first-child { border-top: 1px solid var(--border); }
 
     .info-icon {
-      width: 46px;
-      height: 46px;
-      background: rgba(232,255,0,0.1);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
+      width: 40px;
+      font-size: 1.1rem;
       flex-shrink: 0;
+      padding-top: 2px;
     }
 
-    .info-text small { display: block; font-size: 0.75rem; color: var(--gray); margin-bottom: 4px; letter-spacing: 0.5px; }
-    .info-text strong { font-size: 1rem; font-weight: 600; }
-    .info-text a { color: var(--white); text-decoration: none; }
-    .info-text a:hover { color: var(--accent); }
+    .info-text small {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 6px;
+    }
+
+    .info-text strong { font-size: 0.95rem; font-weight: 500; color: var(--dark); }
+    .info-text a { color: var(--dark); text-decoration: none; transition: color 0.2s; }
+    .info-text a:hover { color: var(--brown); }
 
     .kakao-card {
-      background: var(--card-bg);
-      border-radius: 20px;
-      padding: 40px;
-      border: 1px solid rgba(255,255,255,0.07);
+      background: var(--dark);
+      border-radius: 2px;
+      padding: 50px 44px;
       text-align: center;
+      color: var(--white);
     }
 
-    .kakao-card .kakao-icon { font-size: 3rem; margin-bottom: 16px; }
-    .kakao-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
-    .kakao-card p { color: #888; font-size: 0.9rem; margin-bottom: 28px; line-height: 1.7; }
+    .kakao-card .kakao-icon { font-size: 2.5rem; margin-bottom: 20px; }
+
+    .kakao-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+      color: var(--cream);
+    }
+
+    .kakao-card p {
+      color: rgba(242,237,231,0.55);
+      font-size: 0.88rem;
+      margin-bottom: 36px;
+      line-height: 1.9;
+      font-weight: 300;
+    }
 
     .btn-kakao {
       display: inline-block;
       background: #FEE500;
       color: #191919;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 15px 36px;
-      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 16px 38px;
+      border-radius: 2px;
       text-decoration: none;
       transition: transform 0.2s, box-shadow 0.2s;
     }
@@ -518,17 +666,56 @@
 
     /* ── FOOTER ── */
     footer {
-      border-top: 1px solid rgba(255,255,255,0.07);
-      padding: 40px 5%;
+      background: var(--dark);
+      padding: 50px 6%;
       text-align: center;
-      color: var(--gray);
-      font-size: 0.82rem;
+      color: rgba(242,237,231,0.45);
+      font-size: 0.8rem;
     }
 
-    footer strong { color: var(--white); }
-    footer .footer-links { display: flex; justify-content: center; gap: 24px; margin-top: 14px; flex-wrap: wrap; }
-    footer .footer-links a { color: var(--gray); text-decoration: none; transition: color 0.2s; }
-    footer .footer-links a:hover { color: var(--accent); }
+    .footer-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 5px;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+
+    .footer-logo-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.55rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(242,237,231,0.35);
+      margin-bottom: 28px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(242,237,231,0.35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--cream); }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(242,237,231,0.2);
+      margin-top: 10px;
+    }
 
     /* ── MOBILE ── */
     @media (max-width: 768px) {
@@ -541,10 +728,15 @@
 
       .contact-wrap {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 48px;
       }
 
-      .hero-title { letter-spacing: -1px; }
+      .hero-bg-shape { display: none; }
+
+      #stats { flex-direction: column; align-items: center; }
+
+      .kakao-card { padding: 40px 28px; }
+      .online-card { padding: 48px 28px; }
     }
   </style>
 </head>
@@ -552,7 +744,10 @@
 
 <!-- NAV -->
 <nav>
-  <div class="logo">PO<span>MOVE</span></div>
+  <div class="logo">
+    <div class="logo-main">PO:MOVE</div>
+    <div class="logo-sub">Training Studio</div>
+  </div>
   <ul class="nav-links">
     <li><a href="#services">프로그램</a></li>
     <li><a href="#philosophy">철학</a></li>
@@ -564,27 +759,29 @@
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-bg"></div>
-  <span class="hero-tag">서울 성북구 정릉동 · Personal Training</span>
-  <h1 class="hero-title">
-    다치지 않는<br />
-    <span class="accent">몸 만들기</span>
-  </h1>
-  <p class="hero-sub">
-    포무브PT에서 올바른 움직임을 배우고<br />
-    건강하고 강한 몸을 만들어 보세요.
-  </p>
-  <div class="hero-btns">
-    <a href="https://open.kakao.com/o/gLPTAAXh" class="btn-primary" target="_blank">
-      💬 카카오 오픈채팅 상담
-    </a>
-    <a href="#services" class="btn-secondary">
-      프로그램 보기
-    </a>
-  </div>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    Scroll
+  <div class="hero-bg-shape"></div>
+  <div class="hero-content">
+    <span class="hero-tag">서울 성북구 정릉동 · Personal Training</span>
+    <h1 class="hero-title">
+      다치지 않는<br />
+      <strong>몸 만들기</strong>
+    </h1>
+    <p class="hero-sub">
+      올바른 움직임을 배우고<br />
+      건강하고 강한 몸을 만들어 보세요.
+    </p>
+    <div class="hero-btns">
+      <a href="https://open.kakao.com/o/gLPTAAXh" class="btn-primary" target="_blank">
+        카카오 오픈채팅 상담
+      </a>
+      <a href="#services" class="btn-secondary">
+        프로그램 보기
+      </a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
   </div>
 </section>
 
@@ -603,8 +800,8 @@
     <div class="stat-label">바디진단 패키지</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num">온라인</div>
-    <div class="stat-label">크래스 제공</div>
+    <div class="stat-num">Online</div>
+    <div class="stat-label">클래스 제공</div>
   </div>
 </div>
 
@@ -616,8 +813,8 @@
   <div class="services-grid">
 
     <div class="service-card">
-      <div class="service-icon">🔍</div>
-      <div class="service-badge">STARTER</div>
+      <div class="service-num">01</div>
+      <div class="service-badge">Starter</div>
       <div class="service-name">3회 바디진단 패키지</div>
       <p class="service-desc">
         체형 분석부터 움직임 패턴 평가까지. 3회에 걸쳐 내 몸의 현재 상태를 정확히 파악하고, 맞춤 운동 계획을 수립합니다.
@@ -626,8 +823,8 @@
     </div>
 
     <div class="service-card">
-      <div class="service-icon">🤝</div>
-      <div class="service-badge">EXPERIENCE</div>
+      <div class="service-num">02</div>
+      <div class="service-badge">Experience</div>
       <div class="service-name">2:1 체험 레슨</div>
       <p class="service-desc">
         친구 또는 가족과 함께하는 체험 레슨. 혼자보다 더 즐겁게, 전문 트레이너의 지도 아래 포무브 운동 방식을 경험해 보세요.
@@ -636,8 +833,8 @@
     </div>
 
     <div class="service-card">
-      <div class="service-icon">🎯</div>
-      <div class="service-badge">PREMIUM</div>
+      <div class="service-num">03</div>
+      <div class="service-badge">Premium</div>
       <div class="service-name">1:1 레슨</div>
       <p class="service-desc">
         트레이너의 100% 집중 케어. 개인 목표와 몸 상태에 최적화된 프로그램으로 가장 빠르고 안전한 변화를 경험하세요.
@@ -653,7 +850,7 @@
   <div class="philosophy-text">
     <div class="section-label">Philosophy</div>
     <h2 class="section-title">왜 포무브PT인가요?</h2>
-    <p class="section-desc section-desc--left">
+    <p class="section-desc">
       단순히 근육을 키우는 운동이 아닌, 올바른 움직임 패턴을 통해 부상 없이 오래 운동할 수 있는 몸을 만드는 것이 포무브의 핵심 철학입니다.
     </p>
     <ul class="check-list">
@@ -667,7 +864,7 @@
   <div class="philosophy-visual">
     <p class="big-text">
       "다치지 않는 몸이<br />
-      <span>진짜 강한 몸</span>입니다"
+      <em>진짜 강한 몸</em>입니다"
     </p>
     <div class="divider"></div>
     <p>
@@ -694,7 +891,7 @@
       운동 꿀팁, 자세 교정, 홈트 루틴까지 함께 나눕니다.
     </p>
     <a href="https://open.kakao.com/o/gLPTAAXh" class="btn-primary" target="_blank">
-      💬 오픈채팅 참여하기
+      오픈채팅 참여하기
     </a>
   </div>
 </section>
@@ -703,7 +900,7 @@
 <section id="social">
   <div class="section-label">Follow Us</div>
   <h2 class="section-title">포무브 한쌤 채널</h2>
-  <p class="section-desc" style="margin: 0 auto 40px;">
+  <p class="section-desc" style="margin: 0 auto 48px;">
     운동 팁, 자세 교정, 트레이닝 영상 등 다양한 콘텐츠를 확인하세요.
   </p>
   <div class="social-grid">
@@ -791,13 +988,15 @@
 
 <!-- FOOTER -->
 <footer>
-  <strong>포무브PT</strong> · 서울 성북구 정릉동 170-21, 2층 · 02-911-2551
+  <div class="footer-logo">PO:MOVE</div>
+  <div class="footer-logo-sub">Training Studio</div>
   <div class="footer-links">
     <a href="https://www.instagram.com/pomove_han" target="_blank">Instagram</a>
     <a href="https://www.youtube.com/pomove_han" target="_blank">YouTube</a>
     <a href="https://open.kakao.com/o/gLPTAAXh" target="_blank">KakaoTalk</a>
   </div>
-  <div style="margin-top:16px; font-size:0.75rem; color:#555;">© 2024 POMOVE PT. All rights reserved.</div>
+  <div>서울 성북구 정릉동 170-21, 2층 · 02-911-2551</div>
+  <div class="footer-copy">© 2024 PO:MOVE Training Studio. All rights reserved.</div>
 </footer>
 
 </body>
