@@ -107,19 +107,20 @@
     /* ── HERO ── */
     #hero {
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
       padding: 120px 6% 80px;
       position: relative;
       overflow: hidden;
+      gap: 60px;
     }
 
     .hero-bg-shape {
       position: absolute;
       right: -5%;
       top: 10%;
-      width: 55%;
+      width: 52%;
       height: 80%;
       background: var(--cream-2);
       border-radius: 4px;
@@ -127,7 +128,71 @@
       z-index: 0;
     }
 
-    .hero-content { position: relative; z-index: 1; max-width: 600px; }
+    .hero-content { position: relative; z-index: 1; }
+
+    .hero-right {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .hero-right-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--brown);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .hero-info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .hero-info-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .hero-info-list li:first-child { border-top: 1px solid var(--border); }
+
+    .hero-info-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--brown);
+      flex-shrink: 0;
+      min-width: 28px;
+    }
+
+    .hero-quote {
+      background: var(--brown-2);
+      border-radius: 2px;
+      padding: 28px 32px;
+      margin-top: 8px;
+    }
+
+    .hero-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.7;
+      font-style: italic;
+    }
 
     .hero-tag {
       display: inline-flex;
@@ -780,6 +845,11 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
 
+      #hero {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
       #philosophy {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -796,6 +866,8 @@
 
       .kakao-card { padding: 40px 28px; }
       .online-card { padding: 48px 28px; }
+
+      .reviews-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -820,28 +892,6 @@
 <section id="hero">
   <div class="hero-bg-shape"></div>
   <div class="hero-content">
-    <div class="hero-logo-mark">
-      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Outer frame -->
-        <rect x="2" y="2" width="76" height="76" stroke="#5C3D28" stroke-width="1.5" fill="none"/>
-        <!-- P shape: vertical stroke -->
-        <line x1="20" y1="18" x2="20" y2="62" stroke="#5C3D28" stroke-width="2.5"/>
-        <!-- P shape: top horizontal -->
-        <line x1="20" y1="18" x2="36" y2="18" stroke="#5C3D28" stroke-width="2.5"/>
-        <!-- P shape: middle horizontal -->
-        <line x1="20" y1="40" x2="36" y2="40" stroke="#5C3D28" stroke-width="2.5"/>
-        <!-- P shape: right vertical top half -->
-        <line x1="36" y1="18" x2="36" y2="40" stroke="#5C3D28" stroke-width="2.5"/>
-        <!-- M shape: left vertical -->
-        <line x1="44" y1="18" x2="44" y2="62" stroke="#5C3D28" stroke-width="2.5"/>
-        <!-- M shape: right vertical -->
-        <line x1="62" y1="18" x2="62" y2="62" stroke="#5C3D28" stroke-width="2.5"/>
-        <!-- M shape: left diagonal -->
-        <line x1="44" y1="18" x2="53" y2="38" stroke="#5C3D28" stroke-width="2.5"/>
-        <!-- M shape: right diagonal -->
-        <line x1="62" y1="18" x2="53" y2="38" stroke="#5C3D28" stroke-width="2.5"/>
-      </svg>
-    </div>
     <span class="hero-tag">서울 성북구 정릉동 · Personal Training</span>
     <h1 class="hero-title">
       다치지 않는<br />
@@ -862,6 +912,31 @@
     <div class="hero-scroll">
       <div class="scroll-line"></div>
       Scroll
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-right-title">Programs</div>
+    <ul class="hero-info-list">
+      <li>
+        <span class="hero-info-num">01</span>
+        <span><strong>3회 바디진단 패키지</strong><br />체형 분석 · 움직임 패턴 평가 · 맞춤 운동 계획 수립</span>
+      </li>
+      <li>
+        <span class="hero-info-num">02</span>
+        <span><strong>2:1 체험 레슨</strong><br />친구·가족과 함께하는 포무브 첫 경험</span>
+      </li>
+      <li>
+        <span class="hero-info-num">03</span>
+        <span><strong>1:1 퍼스널 트레이닝</strong><br />트레이너 100% 집중 케어 · 개인 맞춤 프로그램</span>
+      </li>
+      <li>
+        <span class="hero-info-num">04</span>
+        <span><strong>온라인 클래스</strong><br />카카오 오픈채팅 · 장소 제약 없이 수강 가능</span>
+      </li>
+    </ul>
+    <div class="hero-quote">
+      <p>"다치지 않는 몸이 진짜 강한 몸입니다"</p>
     </div>
   </div>
 </section>
@@ -986,10 +1061,9 @@
     </div>
     <div class="review-card">
       <p class="review-text">
-        <strong>1주차 후기</strong><br />
         칼스운동을 알고 있었는데 진짜 해본게 지금이네요. 힘들고, 뻑뻑하고, 내 몸이 많이 늙었구나 생각이 들었습니다. 이 시간을 토대로 아침저녁으로 해보아야겠어요. 요즘 저속노화를 자주 듣는데, 저도 더 늦기전에 해보겠습니다. 오늘 강의 감사합니다 ^^
       </p>
-      <div class="review-author">1주차 수강생</div>
+      <div class="review-author">수강생 후기</div>
     </div>
     <div class="review-card">
       <p class="review-text">
@@ -1005,10 +1079,9 @@
     </div>
     <div class="review-card">
       <p class="review-text">
-        <strong>1주차 후기</strong><br />
         때마침 허리가 불편했는데 영상보면서 운동을 따라했더니 허리가 편해졌어요. 매일 10분 챌린지 해보고자 합니다. 처음에는 불편정도가 7이었다면 현재는 4정도로 떨어졌습니다^^ 설명도 천천히 잘해주셔서 도움이 많이 되었습니다^^ 감사합니다.
       </p>
-      <div class="review-author">1주차 수강생</div>
+      <div class="review-author">수강생 후기</div>
     </div>
   </div>
 </section>
